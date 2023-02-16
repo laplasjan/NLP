@@ -1,0 +1,44 @@
+wordlist = continuous_text.split()
+
+wordfreq = {}
+for w in wordlist:
+    wordfreq[w] = wordlist.count(w)
+
+words = []
+frequencies = []
+for key in wordfreq:
+    words.append(key)
+    frequencies.append(wordfreq[key])
+
+wordfreq_np = np.array([words, frequencies])
+wordfreq_np = np.flip(wordfreq_np.T[np.argsort(wordfreq_np[1])], axis=0)
+
+plt.figure(figsize=(8,8))
+plt.bar(range(8), wordfreq_np.T[1][:8].astype('int'))
+plt.xticks(range(8), wordfreq_np.T[0][:8], rotation='vertical')
+plt.xlabel('Word')
+plt.ylabel('Count')
+plt.title('Most frequent words')
+plt.show()
+
+continuous_text = "".join(i + " " for i in df[i])
+
+plt.rcParams['font.size']=12                #10 
+plt.rcParams['savefig.dpi']=100             #72 
+plt.rcParams['figure.subplot.bottom']=.1 
+
+stopwords = set(STOPWORDS)
+
+wordcloud = WordCloud(
+    background_color='white',
+    stopwords=stopwords,
+    max_words=200,
+    max_font_size=40, 
+    random_state=42
+    ).generate(continuous_text)
+
+fig = plt.figure(figsize=(12, 8))
+plt.imshow(wordcloud)
+plt.axis('off')
+plt.show()
+fig.savefig("word1.png", dpi=900)
