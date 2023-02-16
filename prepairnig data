@@ -1,0 +1,36 @@
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from wordcloud import WordCloud, STOPWORDS
+import re, itertools
+import torch
+import stop_words
+import snowballstemmer
+from nltk.corpus import brown
+import nltk
+import string
+from nltk.stem import wordnet
+from nltk.corpus import webtext
+import langdetect
+
+df = pd.read_csv(r"C:\Users\jmich\Google\file1.csv")
+tfidf_vect = TfidfVectorizer()
+
+from sklearn.model_selection import train_test_split
+
+train_df, test = train_test_split(df, test_size=0.2, random_state=0)
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+corpus = train_df
+vectorizer= TfidfVectorizer(analyzer='word', stop_words='english', 
+                              token_pattern='[A-Za-z][\w\-]*', max_df=0.25)
+
+X = vectorizer.fit_transform(corpus)
+
+print(X.shape)
+
+X = vectorizer.fit_transform(df[1:625])
+
+from sklearn import svm
+svm.SVC()
