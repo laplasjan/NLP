@@ -31,7 +31,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 12,
    "id": "4961ec77",
    "metadata": {},
    "outputs": [],
@@ -42,7 +42,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 19,
    "id": "c09ac467-c588-4aeb-a301-7524f93aceed",
    "metadata": {},
    "outputs": [],
@@ -54,7 +54,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 20,
    "id": "13fbf364-45b0-47a8-8ad0-6dad0df83fa0",
    "metadata": {},
    "outputs": [],
@@ -67,7 +67,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 21,
    "id": "e004ec43-ada8-43d5-ac8d-036b5abffde1",
    "metadata": {},
    "outputs": [
@@ -78,7 +78,7 @@
        "\twith 9 stored elements in Compressed Sparse Row format>"
       ]
      },
-     "execution_count": 6,
+     "execution_count": 21,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -90,7 +90,28 @@
     "vectorizer= TfidfVectorizer(analyzer='word', stop_words='english', \n",
     "                              token_pattern='[A-Za-z][\\w\\-]*', max_df=0.25)\n",
     "\n",
-    "vectorizer.fit_transform(corpus)"
+    "vectorizer.fit_transform(corpus)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "91210332-b125-4b16-9939-8934c87151e2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "pandas.core.frame.DataFrame"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(train_df)"
    ]
   },
   {
@@ -103,7 +124,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 23,
    "id": "1a50254e-5d4a-4d36-9690-227cdea9a5c5",
    "metadata": {},
    "outputs": [
@@ -173,7 +194,7 @@
        "0  <p>The Minsk agreements were concluded as a re...  "
       ]
      },
-     "execution_count": 7,
+     "execution_count": 23,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -205,7 +226,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 24,
    "id": "ba4084e5",
    "metadata": {},
    "outputs": [
@@ -239,7 +260,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 26,
    "id": "428197fa",
    "metadata": {},
    "outputs": [
@@ -267,7 +288,7 @@
        "str"
       ]
      },
-     "execution_count": 10,
+     "execution_count": 26,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -281,7 +302,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 27,
    "id": "8d684490-47c7-42e2-bf89-03e54983b1a5",
    "metadata": {},
    "outputs": [
@@ -1291,7 +1312,7 @@
        " ...]"
       ]
      },
-     "execution_count": 11,
+     "execution_count": 27,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1303,7 +1324,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 28,
    "id": "281c43d3",
    "metadata": {},
    "outputs": [
@@ -1313,7 +1334,7 @@
        "str"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 28,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1334,10 +1355,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 30,
    "id": "a4a6d395",
    "metadata": {},
    "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<WordListCorpusReader in '.../corpora/stopwords' (not loaded yet)>\n"
+     ]
+    },
     {
      "name": "stderr",
      "output_type": "stream",
@@ -1346,22 +1374,12 @@
       "[nltk_data]     C:\\Users\\jmich\\AppData\\Roaming\\nltk_data...\n",
       "[nltk_data]   Package stopwords is already up-to-date!\n"
      ]
-    },
-    {
-     "data": {
-      "text/plain": [
-       "True"
-      ]
-     },
-     "execution_count": 14,
-     "metadata": {},
-     "output_type": "execute_result"
     }
    ],
    "source": [
     "import nltk\n",
     "from nltk.corpus import stopwords\n",
-    "nltk.download('stopwords')\n"
+    "nltk.download('stopwords')"
    ]
   },
   {
@@ -1378,7 +1396,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 31,
    "id": "6a7a31b8-60ed-4da9-837c-3d116e8ec72b",
    "metadata": {},
    "outputs": [
@@ -1386,7 +1404,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "{'she', 'didn', \"wasn't\", 'or', 'over', 'what', 'being', 'shouldn', \"mustn't\", 'do', 'between', 'how', 'on', 'too', 'hadn', 'who', 've', 'each', 'any', 'can', 'then', 'isn', 'wouldn', 'i', 'so', 'should', 'doesn', 'herself', \"doesn't\", \"haven't\", 'no', 're', 'are', 'does', \"needn't\", 'under', 'same', 'with', 'o', \"it's\", \"that'll\", 'we', 'out', 'won', 'mightn', 'am', 'above', 'the', 'into', 'own', 'to', \"should've\", \"shouldn't\", \"you've\", 'him', 'itself', \"don't\", 'these', 'during', 'below', \"wouldn't\", 'will', \"didn't\", \"hadn't\", 'yours', 'that', 'doing', 'when', 'down', 'but', 'did', 'has', 'll', 't', 'from', 'yourselves', \"aren't\", \"she's\", 'me', 'further', 'just', 'other', 'until', 'for', 'themselves', 'my', 'now', 'more', \"you'll\", 'there', 'you', 's', 'not', 'ours', 'only', 'against', \"you're\", 'its', 'at', 'were', \"hasn't\", 'where', \"weren't\", 'an', 'after', 'off', 'all', 'which', \"you'd\", 'your', 'yourself', 'have', 'don', 'up', 'needn', 'mustn', 'been', 'is', 'having', 'of', 'a', 'our', 'haven', 'ain', 'weren', 'if', 'hers', 'her', 'theirs', 'before', 'again', 'very', 'and', 'because', 'both', 'had', 'while', \"isn't\", 'myself', 'it', 'ourselves', 'shan', 'about', 'couldn', 'wasn', \"mightn't\", 'whom', 'be', 'by', 'why', 'they', 'ma', 'was', \"won't\", 'this', 'through', 'as', \"couldn't\", 'y', 'than', 'few', 'himself', 'he', 'most', 'nor', 'such', 'some', 'his', 'm', 'once', 'their', 'd', 'aren', 'them', 'here', \"shan't\", 'those', 'in', 'hasn'}\n",
+      "{'as', 'ourselves', 'their', 'herself', 'wasn', 're', 'up', 'yours', 'why', \"isn't\", 'are', 'here', 'there', \"don't\", 'am', 'out', 'wouldn', 'it', \"you've\", 'those', \"it's\", 'mustn', 'between', 'do', 'our', 'hers', 'very', 'above', 'be', 'your', 'all', 'has', 'during', 'whom', 'who', 'but', 'o', 'shan', \"that'll\", 'couldn', 'my', 'weren', \"she's\", 'doesn', \"haven't\", 'him', \"doesn't\", \"wouldn't\", 'didn', 'hadn', 'now', 'such', 's', 'more', 'just', 'against', 'under', 'd', 'other', 'won', 'and', 'y', 'or', 'been', 'if', 'from', \"wasn't\", 'same', 'yourselves', 'mightn', 'while', 'further', 'i', 'shouldn', 'no', \"hasn't\", 'down', \"you'd\", \"mustn't\", 'into', 'before', 'than', \"needn't\", 'this', 'having', 'll', 'itself', 'being', 'haven', 'where', 'by', 'for', 'in', 'only', 't', \"shouldn't\", \"aren't\", 'don', 'to', 'aren', 'how', 'isn', 'ain', \"didn't\", 'some', 'that', 'any', 'on', 'themselves', 'they', \"you're\", 'you', 'own', 'needn', 'both', 'will', 'when', 'each', \"shan't\", 'most', 'the', 'did', 'after', 'a', 'can', 'should', \"couldn't\", \"hadn't\", 'doing', \"you'll\", 'because', 'me', 'once', 've', 'myself', 'he', 'an', 'not', 'himself', 'had', 'have', 'which', 'her', 'was', 'until', 'of', \"should've\", 'yourself', 'few', 'again', \"weren't\", 'what', 'theirs', 'its', 'is', 'ours', 'does', 'off', 'these', 'through', 'she', 'below', 'over', 'ma', \"won't\", 'were', 'hasn', 'his', 'too', 'then', 'at', 'about', \"mightn't\", 'them', 'we', 'so', 'nor', 'with', 'm'}\n",
       "['0', 'Kyiv', 'forces', 'continue', 'bomb', 'territories', '...', '1', 'Maidan', 'putsch', 'April', '2014', ',', 'Kyiv', 'se', '...', '2', 'Maidan', 'coup', 'thousands', '...', '3', 'civil', 'war', 'raging', 'since', 'coup', '...', '4', 'course', ',', 'Biden', 'knows', 'initiated', '2014', '...', '5', 'Ukrainian', 'authorities', 'launched', 'military', '...', '6', 'putsch', 'Maidan', '2014', ',', 'w', '...', '7', 'situation', 'Donbas', 'worsened', '...', '8', 'Tension', 'skyrocketing', 'self-proclaimed', '...', '9', 'situation', 'eastern', 'Ukraine', 'worsenin', '...', '10', 'Russia', \"'s\", 'actions', 'Crimea', 'Donbas', 'regi', '...', '11', 'Nuland', 'driving', 'force', 'behind', 'coup', 'bef', '...', '12', 'Vladimir', 'Putin', 'likened', 'events', 'Weste', '...', '13', 'despite', 'fact', 'Unite', '...', '14', 'although', 'Moscow', '(', 'also', 'Ukraine', 'c', '...', '15', 'Earlier', 'Sunday', ',', 'self-proclaimed', 'Donet', '...', '16', 'Previously', ',', 'LNR', 'forces', 'claimed', 'th', '...', '17', 'Sternenko', 'rose', 'prominence', 'politically', '...', '18', 'result', 'massacre', 'Maidan', ',', 'abo', '...', '19', 'current', 'problem', 'began', 'US', '...', '20', 'reported', ',', 'Ukrainian', 'armed', 'forces', 'fired', '...', '21', 'time', ',', 'Stoltenberg', 'admitted', 'th', '...', '22', 'Russia', 'ruling', 'hysteria', 'aro', '...', '23', 'months', 'denying', 'involvement', '...', '24', 'Since', 'Maidan', 'putsch', 'Ukraine', '2013/201', '...', '25', 'report', 'begins', 'description', 'Nazi', 'h', '...', '26', 'Since', 'Maidan', 'coup', 'February', '2014', ',', 'whi', '...', '27', 'Right', 'Sector', 'provided', 'violent', 'dem', '...', '28', 'Since', 'Maidan', 'coup', 'February', '2014', ',', 'whi', '...', '29', 'right-wing', 'extremist', 'danger', ',', 'lon', '...', '30', 'addition', ',', 'right-wing', 'extremist', 'forces', '...', '31', 'According', 'strategic', 'considerations', ',', 'sup', '...', '32', 'coup', 'Kyiv', 'left', 'shattered', 'country', '...', '33', 'West', 'continues', 'accuse', 'Russia', '``', 'concen', '...', '34', 'First', 'fact', '2014', '...', '35', 'Since', '2014', 'coup', ',', 'Ukraine', 'always', '...', '36', 'smoke', 'bomb', 'topic', 'Crimean', '...', '37', 'US', 'actively', 'opposes', 'project', ',', 'promoting', '...', '38', 'Russia', 'repeatedly', 'rejected', 'accusations', '...', '39', 'Russia', 'knows', 'site', 'alleged', 'laun', '...', '40', 'reported', 'Sputnik', 'Deputy', 'Attorney', 'Gene', '...', '41', 'United', 'States', 'looking', 'right', 'way', '...', '42', 'statements', '``', 'Russian', 'aggression', \"''\", 'used', '...', '43', 'Already', '2015', ',', 'Maidan', 'coup', ',', 'fighte', '...', '44', 'Since', 'coup', 'reorientation', 'Ya', '...', '45', 'country', 'financially', 'dependent', '...', '46', 'National', 'Guard', 're-established', '...', '48', 'war', 'eastern', 'Ukrainian', 'region', '...', '49', 'weekend', ',', 'fake', 'Biden', 'allegedly', 'met', '...', '50', 'already', 'explained', 'US', 'plan', '...', '51', 'central', 'reason', 'escalation', ',', 'however', ',', '...', '52', 'plausible', ',', ',', 'Moscow', 'fears', 'th', '...', '53', 'Russia', 'obviously', 'interest', '...', '54', 'foreign', 'puppet', 'government', 'installed', '...', '55', 'February', '2014', 'NATO-backed', 'coup', 'el', '...', '56', 'Washington', 'decided', 'increase', 'push', 'fo', '...', '57', 'annexation', 'Ukraine', 'NATO', 'contrary', '...', '58', 'First', 'fact', '2014', '...', '59', 'know', 'Merkel', 'government', '...', '60', 'heroization', 'Nazi', 'past', 'small', 'mi', '...', '61', 'remembered', 'Ukrainian', 'SOF', '...', '62', 'statement', 'Peskov', 'interpreted', '...', '63', 'right-wing', 'extremist', 'danger', ',', 'lon', '...', '64', 'point', 'already', 'questions', '...', '65', 'launch', 'Nord', 'Stream', '2', 'crit', '...', '66', 'European', 'Union', 'bears', 'serious', 'respon', '...', '67', 'latest', 'since', 'point', 'time', ',', 'mo', '...', '68', 'Kyiv', 'launched', 'military', 'operation', '...', '69', 'Nowhere', 'clearer', 'bloody', 'Od', '...', '70', 'former', 'leader', 'Odesa', 'neo-Nazi', 'organ', '...', '71', 'Since', 'Maidan', 'coup', 'February', '2014', ',', 'whi', '...', '72', 'Right', 'Sector', 'provided', 'violent', 'dem', '...', '73', 'Sternenko', 'rose', 'prominence', 'politically', '...', '74', 'Ukrainian', 'ruling', 'class', 'aware', 'c', '...', '75', 'Kyiv', 'launched', 'military', 'operation', '...', '76', 'addition', ',', 'right-wing', 'extremist', 'forces', '...', '77', 'Even', 'fatal', 'shots', 'fired', 'snip', '...', '78', 'POLAND', 'ANNOUNCED', '``', 'DIABOLICAL', \"''\", 'PLAN', '...', '79', 'Coup', 'Kyiv', ':', 'role', 'fascists', 'play', '?', '80', 'Russia', 'every', 'right', 'say', 'West', '...', '81', 'January', '1', ',', 'celebrations', 'Kyiv', '...', '82', 'Ukraine', 'turned', 'neo-Nazi', 'forge', ',', '...', '83', 'nationalists', 'march', ':', 'Minsk', 'hands', '...', '84', 'January', '1', ',', '2022', ',', 'celebrations', 'held', '...', '85', 'much', 'government', '...', '86', 'Ukraine', ',', 'right-wing', 'extremist', 'groups', 'organi', '...', '87', 'NATO', 'maneuver', 'Rapid', 'Trident', '2015', 'Ukraine', ':', '...', '88', 'Last', 'week', 'Interior', 'Minister', 'Arsen', 'Avakov', ',', 'one', '...', '89', 'Right-wing', 'Interior', 'Minister', 'Arsen', 'Avakov', ',', '...', '90', 'interior', 'minister', ',', 'Avakov', 'controls', 'coun', '...', '91', 'Ukraine', ':', 'President', 'Zelenskyj', 'deepens', 'alliance', '...', '92', 'Therefore', ',', 'authorities', 'levels', ',', 'simultan', '...', '94', 'Melnyk', 'clarify', 'Germany', 'would', 'gain', '...', '95', 'US', 'War', 'Lobby', 'Fuels', 'Conflict', 'Russia', ',', 'Ukraine', '...', '96', 'point', 'NATO', 'Warsaw', 'Pact', 'w', '...', '97', 'Ukraine', 'economic', 'black', 'hole', 'massive', '...', '98', 'Washington', 'warns', 'Moscow', 'respond', 'US', '...', '99', ',', 'poor', 'Germans', ',', 'would', 'like', '...', '100', 'Washington', 'warns', 'Moscow', 'respond', 'US', '...', '101', '``', 'German', 'interest', \"''\", '-', 'Schwesig', 'insists', '...', '102', 'US', 'acts', 'like', 'colonial', 'rulers', '.', 'rel', '...', '103', 'Ukraine', 'crisis', 'nothing', 'Ukra', '...', '104', 'According', 'Nomisma', 'Energia', 'President', 'Davide', '...', '105', 'Donbas', ',', 'autonomist', 'militias', 'denounce', 'war', 'prepa', '...', '106', 'well', 'known', 'purely', 'commerc', '...', '107', 'Ukrainian', 'security', 'forces', 'setting', 'firin', '...', '108', 'primary', 'concern', 'Europe', \"'s\", 'energ', '...', '109', 'continues', '2021', 'US', 'arms', 'budget', 'law', '...', '110', 'Ukrainian', 'security', 'forces', 'setting', 'firin', '...', '111', '``', 'civil', 'war', ',', 'lasted', '8', 'years', '...', '112', 'Ukraine', 'loses', 'role', 'transit', 'country', 'du', '...', '114', 'planes', ',', 'ships', ',', 'military', 'exercises', '—', 'U', '...', '115', 'Russian', 'Foreign', 'Ministry', 'spokeswoman', 'Maria', 'Zak', '...', '116', 'Given', 'systemic', 'nature', 'Western', 'military', '...', '117', 'Recently', ',', 'NATO', 'member', 'states', ',', 'led', 'Unite', '...', '118', 'witnessing', 'gradual', 'NATO', 'invasion', 'U', '...', '119', 'Kremlin', 'spokesman', ':', 'Russia', 'monitoring', 'gr', '...', '120', 'atmosphere', 'sides', 'Atlantic', '...', '121', 'NATO', 'member', 'states', 'systematically', 'turning', '...', '122', 'Despite', 'media', 'frenzy', 'United', 'States', '...', '123', 'Russia', ',', 'hand', ',', 'expresses', 'concern', '...', '124', 'WEST', 'KNOCKED', 'UKRAINE', 'USE', 'AG', '...', '125', 'West', 'Ukraine', 'accuse', 'Russia', '``', 'plans', '...', '126', 'Japan', 'threatens', 'become', 'NATO', 'deployment', 'ar', '...', '127', 'Washington', 'force', 'Kyiv', 'armed', 'provocations', '128', 'Whoever', 'keeps', 'pushing', 'NATO', 'closer', 'Russia', \"'s\", '...', '129', 'America', ',', 'done', 'many', 'times', ',', '...', '130', 'WEST', 'KNOCKED', 'UKRAINE', 'USE', 'AG', '...', '131', 'Le', 'Pen', 'called', 'NATO', 'fulfill', 'obligatio', '...', '132', 'Simply', 'put', ',', 'Russia', 'expects', 'US', 'alli', '...', '133', 'Accordingly', ',', 'two', 'German', 'states', 'r', '...', '134', 'Russia', 'partner', '.', 'agree', 'make', '...', '135', 'United', 'States', 'NATO', 'always', 'treated', '...', '136', 'Nobody', 'pays', 'attention', 'fact', ',', 'reported', '...', '137', 'fact', 'Russia', 'understandable', 'int', '...', '138', 'Russia', 'wants', 'protect', 'autonomy', '...', '139', 'Russia', 'territory', 'Luhansk', '...', '140', 'Russian', 'troops', 'near', 'border', 'Ukraine', 'wi', '...', '141', 'Even', 'add', 'self-defense', 'forces', '...', '142', 'Russian', 'troops', 'near', 'border', 'Ukraine', 'wi', '...', '143', '10,000', 'Russian', 'armed', 'forces', 'complete', 'maneuvers', '...', '144', 'Russian', 'forces', 'training', 'near', 'Ukrainian', '...', '145', 'West', 'accuses', 'Russia', 'massing', 'around', '100', ',', '...', '146', \"n't\", 'Russia', 'even', 'allowed', 'defend', 'fo', '...', '147', 'Blinken', \"'s\", 'comments', 'attempted', 'highligh', '...', '148', 'Meanwhile', ',', 'wind', 'power', 'generation', 'Germany', 'ha', '...', '149', 'Russian', 'Foreign', 'Minister', 'Sergei', 'Lavrov', '...', '150', 'price', 'gas', 'remains', 'record', 'levels', '.', 'Amo', '...', '151', 'Spring', 'Storm', '(', '``', 'Spring', 'Storm', \"''\", ')', 'Estonia', '``', '...', '152', 'US', 'NATO', 'pushing', 'Ukraine', \"'s\", 'conflict', '...', '153', 'might', 'expected', ',', 'Moscow', 'responded', '...', '154', 'guarantees', 'various', 'US', 'European', 'po', '...', '155', 'Ukrainian', 'authorities', 'preparing', 'next', 'p', '...', '157', 'addition', ',', 'Zelensky', 'shut', 'domestic', '...', '158', 'despite', 'massive', 'persecution', 'imprisonme', '...', '159', 'become', 'clear', '...', '160', 'years', ',', 'Russia', 'accused', 'Ukraine', 'massi', '...', '161', 'Putin', \"'s\", 'question', 'seems', 'rhetorical', ',', '10', 'year', '...', '162', 'repressive', 'measures', 'thin', '...', '163', 'look', 'state', \"'s\", 'current', 'domestic', 'politic', '...', '164', 'Discrimination', 'ethnically', 'non-Ukrainia', '...', '165', 'Ukrainian', 'language', 'law', 'gradually', 'coming', '...', '166', 'new', 'discriminations', 'added', ',', 'becau', '...', '167', 'Ukraine', ',', 'proven', 'respect', '...', '169', 'Russian', 'Federation', 'repeatedly', 'asserted', '...', '170', 'Political', 'analyst', 'Karazev', 'talks', '...', '171', 'Russia', 'also', 'repeatedly', 'stressed', 'c', '...', '172', 'Initially', ',', 'sanctions', 'introduced', '...', '173', 'time', ',', 'Russia', 'advised', 'West', 'p', '...', '174', 'rampant', 'corruption', '.', 'economy', 'inexorably', 'st', '...', '175', 'Ukraine', ',', 'increasingly', 'failed', 'state', 'g', '...', '176', 'Neoliberal', 'reforms', 'weakening', 'econom', '...', '177', 'current', 'regime', 'developed', 'econo', '...', '178', 'time', ',', 'Russia', 'advised', 'West', 'p', '...', '179', 'one', 'noticed', 'anything', 'EU', 'loans', ',', '...', '180', 'addition', ',', 'Ukraine', 'long', ',', 'still', 'ong', '...', '181', 'Unlike', 'Greece', ',', 'case', 'non-EU', 'Ukraine', ',', '...', '182', 'Desecration', 'Presidential', 'Seat', 'Kyiv', ':', '...', '183', 'Ukrainian', 'statehood', 'danger', 'disappeari', '...', '184', 'external', 'danger', 'Kyiv', 'anyone', '...', '185', 'Yes', ',', 'becoming', 'increasingly', 'clear', ':', 'Ukrain', '...', '186', 'Even', 'Zelensky', \"'s\", 'former', 'associates', 'say', 'fore', '...', '187', 'thing', 'standing', 'way', 'Ukraine', \"'\", '...', '188', 'Russia', 'draws', 'attention', 'fact', 'Uk', '...', '189', 'Moscow', 'repeatedly', 'stressed', \"'Nord\", 'Stre', '...', '190', 'Ukraine', 'patchwork', 'parts', 'rec', '...', '191', 'Despite', 'everything', ',', 'smart', '50', 'percent', '...', '193', 'Poroshenko', ',', 'useful', 'idiot', 'Westerners', '194', 'real', 'source', 'power', 'Ukraine', '...', '195', 'case', ',', 'assumed', 'backgro', '...', '196', 'President', 'Putin', 'wrote', 'article', 'Russia-', '...', '197', 'Unexpected', 'observers', ',', 'U', '...', '198', 'However', ',', 'experts', 'think', 'make', 'mistake', ':', '...', '199', 'negotiations', 'depend', 'Washington', '...', '200', 'addition', ',', 'Washington', 'effectively', 'steerin', '...', '201', 'situation', 'civil', 'war', 'Ukraine', '...', '202', 'G7', 'foreign', 'ministers', 'released', '...', '203', 'February', '2014', 'NATO-backed', 'coup', 'el', '...', '204', 'government', 'former', 'Ukrainian', 'President', 'P', '...', '205', 'Russian', 'diplomacy', ':', 'actions', 'Ukrainian', 'wa', '...', '206', 'Russia', 'repeatedly', 'denounced', 'fact', '...', '207', 'Drones', 'Turkey', 'arrive', 'Ukraine', '.', 'Germ', '...', '208', 'Moscow', 'sees', 'United', 'States', 'key', 'drivi', '...', '209', 'closeness', 'Merkel', 'Barack', 'Obama', '...', '210', 'Since', 'Maidan', 'putsch', 'Ukraine', '2013/201', '...', '211', 'despite', 'fact', 'Unite', '...', '212', 'Maidan', 'snipers', 'backed', 'EU', '.', '213', 'According', 'White', 'House', ',', 'course', '...', '214', 'Ukraine', ',', 'West', 'bit', '...', '215', 'thing', 'standing', 'way', 'Ukraine', \"'\", '...', '216', 'refusal', 'Ukrainian', 'President', 'Vikt', '...', '217', 'war', 'eastern', 'Ukrainian', 'region', '...', '218', 'According', 'White', 'House', ',', 'course', '...', '219', 'Western', 'powers', 'consequently', 'supported', 'prot', '...', '220', 'US', 'Secretary', 'State', 'Antony', 'Blinken', ',', '...', '221', 'Many', 'opinion', 'Maidan', 'coup', '...', '222', 'coincidence', '``', 'anti-terrorist', '...', '223', 'flow', 'military', 'transport', 'aircraft', 'betwee', '...', '224', 'Since', 'Maidan', 'putsch', 'Ukraine', '2013/201', '...', '225', 'Nuland', 'driving', 'force', 'behind', '2014', 'u', '...', '226', 'camps', 'Middle', 'Eastern', 'extremists', 'ant', '...', '227', 'Then-Deputy', 'Secretary', 'State', 'Nuland', 'expo', '...', '228', 'West', 'benefited', 'oligarchs', \"'\", 'deindus', '...', '229', 'thing', 'standing', 'way', 'Ukraine', \"'\", '...', '230', 'result', 'Ukraine', \"'s\", 'corrupt', 'oligarch', '...', '231', 'Outwardly', ',', 'EU', 'promises', 'Ukraine', 'prosperity', '...', '232', 'maneuvers', 'arms', 'deliveries', 'ha', '...', '233', '“', 'NATO', 'member', 'states', 'deliberately', 'turning', 'U', '...', '234', 'Japan', 'threatens', 'become', 'NATO', 'deployment', 'ar', '...', '235', 'According', 'White', 'House', ',', 'course', '...', '236', 'US', 'NATO', 'pushing', 'Ukraine', \"'s\", 'conflict', '...', '237', 'new', ',', 'active', 'phase', 'military', 'explorati', '...', '238', 'Looking', 'numbers', 'NATO', 'forces', 'statione', '...', '239', 'Tensions', 'Ukraine', 'began', 'escalate', '...', '240', 'time', ',', 'economy', 'held', 'ho', '...', '241', 'contrary', ',', 'Kyiv', 'Washington', '...', '242', 'addition', ',', 'Ukraine', \"'s\", 'military', 'opponent', '...', '243', 'war', 'eastern', 'Ukrainian', 'region', '...', '244', 'Russian', 'officials', 'long', 'believed', '...', '245', 'Fearing', 'demands', 'autonomy', 'could', 'spread', '...', '246', 'Residents', 'eastern', 'Ukraine', 'began', 'demanding', '...', '247', 'Large', 'swaths', 'eastern', 'Ukrainian', 'regions', '...', '249', 'Hollywood', 'American', 'Diplomats', 'Lead', 'Ukra', '...', '250', 'realistic', 'variant', ',', 'however', ',', 'neol', '...', '251', 'US', 'Ukraine', 'secretly', 'preparing', '...', '252', 'Ukraine', 'incited', 'US', 'go', 'wa', '...', '253', 'Ukraine', 'incited', 'US', 'go', 'wa', '...', '254', 'Residents', 'eastern', 'Ukraine', 'began', 'demanding', '...', '255', 'Nuland', 'likely', 'confirmed', 'soon', ',', 'hot', '...', '256', 'Pentagon', '``', 'rules', \"''\", 'Ukraine', 'prepares', 'w', '...', '257', 'United', 'States', 'planning', 'guerrilla', 'war', ':', '...', '258', 'NATO', 'ends', 'war', 'Ukraine', 'like', 'arsonist', '...', '259', 'NATO', 'Ending', 'War', 'Ukraine', 'Like', 'Arsonist', 'Putti', '...', '260', 'already', 'explained', 'US', 'plan', '...', '261', 'Biden', 'administration', 'pushing', 'Ukrain', '...', '262', 'Ukraine', 'incited', 'US', 'go', 'wa', '...', '263', 'USA', 'Ukraine', 'continue', 'preparations', 'atta', '...', '264', 'US', 'European', 'Command', 'and/or', 'NATO', 'conducted', '...', '265', 'flow', 'military', 'transport', 'aircraft', 'betwee', '...', '266', 'Residents', 'eastern', 'Ukraine', 'began', 'demanding', '...', '267', 'Residents', 'eastern', 'Ukraine', 'began', 'demanding', '...', '268', 'time', ',', 'government', 'Kyiv', '...', '269', 'result', 'ongoing', 'hysteria', ',', '...', '270', 'Among', 'troops', 'transferred', 'east', 'th', '...', '271', 'extent', 'Western', 'appeals', 'Moscow', '...', '272', 'current', 'ceasefire', 'calm', '...', '273', 'Large', 'swaths', 'eastern', 'Ukrainian', 'regions', '...', '274', 'Turkish', 'President', 'Recep', 'Tayyip', 'Erdoğan', 'receive', '...', '275', 'America', 'needs', 'Russia', 'begin', 'war', 'Ukr', '...', '276', 'Certainly', ',', 'fact', 'Crimea', 'become', 'Rus', '...', '277', 'event', 'war', 'without', 'NATO', 'involvement', '...', '278', 'remarkable', 'consistently', 'Western', '...', '279', 'Ukrainian', 'army', 'began', 'firing', 'artillery', 'almo', '...', '280', '``', 'discussion', 'problems', '...', '281', 'soon', ',', 'series', 'legislative', 'acts', 'w', '...', '282', 'Western', 'media', 'carefully', 'ignored', '...', '283', 'Pentagon', '``', 'dominates', \"''\", 'Ukraine', 'preparing', '...', '284', 'goal', 'Ukraine', ',', 'Russia', '.', 'wan', '...', '285', 'US', 'NATO', 'pushing', 'Ukraine', \"'s\", 'conflict', '...', '286', 'US', 'Ukraine', 'secretly', 'preparing', '...', '287', 'Americans', \"n't\", 'need', 'strong', 'Ukrainian', 'army', '.', '...', '288', 'return', 'anti-Russia', 'course', ',', 'effe', '...', '289', 'According', 'new', 'media', 'report', ',', 'possible', '...', '290', 'Certainly', ',', 'fact', 'Crimea', 'become', 'Rus', '...', '291', 'Russian', 'Ambassador', 'United', 'States', 'Anatol', '...', '292', 'Russia', \"'s\", 'ambassador', 'United', 'States', ',', 'Anat', '...', '293', 'result', 'massacre', 'Maidan', ',', 'abo', '...', '294', 'ruled', 'extremely', 'unlikely', ',', 'l', '...', '295', 'Following', 'coup', 'Donbas', \"'s\", 'refusal', '(', '...', '296', '``', 'become', 'Ukraine', '?', \"''\", 'might', 'b', '...', '297', 'Americans', \"n't\", 'need', 'strong', 'Ukrainian', 'army', '.', '...', '298', 'Ukraine', 'aspires', 'part', 'NATO', 'EU', ',', '...', '299', 'Ukraine', 'foreign', 'control', ',', 'p', '...', '300', 'Since', '2014', 'coup', ',', 'Ukraine', 'always', '...', '301', 'may', 'well', 'people', 'sitting', 'comf', '...', '302', 'face', 'economic', 'successes', ',', 'associa', '...', '303', 'status', 'quo', 'accepted', 'Kyiv', ',', 'wh', '...', '304', 'US-NATO', 'SETTING', 'STAGE', '?', 'INTERNAL', 'PROBLE', '...', '305', 'Medvedchuk', 'believes', 'facilities', 'Ukr', '...', '306', 'Ukraine', 'rightly', 'fears', 'Western', 'aspirat', '...', '307', 'Americans', 'taken', 'Ukraine', 'much', '...', '308', 'meantime', ',', 'opposite', 'everything', 'th', '...', '309', '(', 'directors', 'Ukrainian', 'state', 'corporation', '...', '311', 'Cold', 'War', ',', 'America', 'never', 'sought', 'Ukra', '...', '312', 'commentators', 'believe', 'Ukraine', 'could', 'b', '...', '313', 'Ukraine', 'knows', 'Russia', 'wipe', '...', '314', 'Amid', 'many', 'discussions', 'future', '...', '315', 'NATO', 'needs', 'Ukraine', 'buffer', 'zone', '316', 'United', 'States', 'tired', 'Ukrainian', '...', '317', 'Ukraine', \"'s\", 'level', 'priority', 'among', 'Western', '...', '318', 'Relations', 'US', 'Ukraine', 'appear', '...', '319', 'European', 'Union', 'expanded', 'blacklist', '...', '320', 'conflict', 'Donbas', 'Ukrainian', 'g', '...', '321', 'conflict', 'Donbas', 'Ukrainian', 'g', '...', '322', 'Maidan', ',', 'promises', 'West', 'tur', '...', '323', 'policy', 'russophobia', 'discrimination', '...', '324', 'course', ',', 'America', \"'s\", 'military', 'supplies', '...', '326', 'Ukrainian', 'opposition', 'party', '``', 'Opposition', 'Pla', '...', '327', 'language', 'laws', 'explicitly', 'directed', 'agai', '...', '328', 'application', 'language', 'laws', ',', '...', '329', 'current', 'government', 'creating', 'atmosphe', '...', '330', 'Zelensky', 'address', 'issue', 'violati', '...', '331', 'Since', 'country', 'de', 'facto', 'bilingual', 'wh', '...', '332', 'election', 'results', 'show', 'U', '...', '333', 'President', 'Ukraine', 'Volodymyr', 'Zelensky', '...', '334', 'compatible', 'rights', '...', '335', 'journalist', 'establishes', 'causal', 'relationsh', '...', '336', '(', 'Ukraine', '-', 'ed', '.', ')', 'strict', 'censorship', '...', '337', 'Ukraine', 'revealed', ',', 'Friday', '3', 'September', ',', '...', '338', 'state', \"'s\", 'discriminatory', 'policy', 'towards', '...', '339', 'Biden', 'either', \"n't\", 'know', '(', 'likely', ')', 'doe', '...', '340', 'Starting', 'today', ',', 'new', 'norms', 'language', 'law', 'come', '...', '341', 'March', '16', '2014', 'Russia', '``', 'illegally', \"''\", 'ann', '...', '342', 'fact', ',', 'United', 'States', 'wanted', 'Europe', '...', '343', 'Crimea', 'returned', 'Russia', '2014', 'refer', '...', '344', 'Crimea', 'split', 'Ukraine', 'rejoined', 'Russia', '...', '345', ',', 'finally', ',', 'Ukraine', 'became', 'US', 'proper', '...', '346', 'far', ',', 'reaction', 'OS', '...', '347', 'Ukraine', ',', 'people', 'little', 'relaxed', '...', '348', 'pro-European', 'means', 'anti-Russian', ',', 'nationalis', '...', '349', 'Russian', 'Foreign', 'Minister', 'Lavrov', 'fears', '...', '350', 'triumph', 'neo-Nazis', 'Ukraine', 'began', '...', '351', 'Maidan', 'take', 'place', '2013', '2014', '...', '352', 'point', ',', 'Washington', 'bought', 'Ukraine', '-', '...', '354', 'Since', 'nationalist', 'coup', 'Kyiv', 'sub', '...', '355', 'Ukraine', 'war', 'Russia', 'since', '2014', '...', '356', 'talk', 'Russian', 'military', 'presence', '...', '357', 'However', ',', 'fact', 'armed', 'conflicts', '...', '358', 'early', '2014', ',', 'Maidan', 'coup', 'Kiev', ',', '...', '359', 'United', 'States', 'European', 'Union', '...', '360', 'sanctions', 'also', 'represent', 'aggressive', ',', '...', '361', 'Western', 'governments', 'NATO', 'accused', 'Russ', '...', '362', 'However', ',', 'contrast', 'Crimea', 'Sevastopol', ',', '...', '363', 'case', 'Ukraine', ',', 'Russia', 'also', 'p', '...', '364', 'Ukrainians', 'Russians', ',', 'way', '.', '...', '365', 'reason', 'imposition', 'sanctions', '...', '366', 'Washington', 'would', 'like', 'start', 'low-intensity', '...', '367', 'Black', 'Sea', 'peninsula', 'annexed', 'Russia', '...', '368', 'NATO', 'END', 'WAR', 'UKRAINE', '?', \"'s\", 'like', 'sayi', '...', '369', 'surface', ',', '``', 'Crimea', 'platform', \"''\", '...', '370', 'March', '2014', ',', 'referendum', 'held', 'Crimea', '...', '371', 'Crimean', 'crisis', 'direct', 'result', '...', '372', 'Crimean', 'crisis', '2014', ',', 'American', 'wa', '...', '373', 'importantly', ',', 'Zelensky', 'decree', 'proof', '...', '374', 'Moscow', 'also', 'valid', 'legal', 'reasons', 'conside', '...', '375', 'However', ',', 'reasonably', 'see', 'threat', 'Ukrai', '...', '376', 'Wind', 'war', 'Ukraine', '!', 'Biden', 'provokes', 'Putin', ':', '...', '377', 'Residents', 'Sevastopol', 'entire', 'Crimean', '...', '378', '2014', ',', 'local', 'government', 'Crimea', 'refuse', '...', '379', 'smoke', 'bomb', 'topic', 'Crimean', '...', '380', 'punitive', 'measures', 'primarily', 'based', '...', '381', '2014', ',', 'local', 'government', 'Crimea', 'refuse', '...', '382', 'Crimea', 'Sevastopol', 'became', 'administrative', 'su', '...', '383', 'rapid', 'succession', 'events', 'set', 'mot', '...', '384', 'Crimea', 'Sevastopol', 'became', 'administrative', 'su', '...', '385', 'region', 'rebelled', 'political', 'f', '...', '386', ',', 'reunion', 'Crimea', 'Russia', '387', ',', 'so-called', '``', 'annexation', 'Crime', '...', '388', 'Ukraine', \"'s\", 'narrative', 'recent', 'years', '...', '389', 'Ukrainian', 'Crimea', 'become', 'Russian', '.', 'th', '...', '390', 'March', '2014', 'Crimea', 'done', 'F', '...', '391', 'Crimea', 'split', 'Ukraine', 'early', '2014', '...', '392', 'Crimean', 'Peninsula', ',', 'Russia', 'rejoined', '...', '393', 'Crimean', 'peninsula', 'rejoined', 'Russia', '...', '394', 'Crimean', 'peninsula', 'rejoined', 'Russia', '...', '395', 'Crimea', 'rejoined', 'Russia', 'referendum', '.', '396', 'persecution', 'Russian', 'language', 'contin', '...', '397', 'Europe', 'already', 'buys', '40', '%', 'gas', 'fr', '...', '398', 'Putin', \"'s\", 'Russia', 'declared', 'supports', 'L', '...', '399', 'sanctions', 'EU', 'issued', 'R', '...', '400', 'simply', 'execution', 'orders', '...', '401', 'referendum', 'March', '16', ',', '2014', ',', 'sancti', '...', '402', 'Ukrainian', 'artillery', 'never', 'stopped', 'firi', '...', '403', 'Ukraine', 'declares', 'Minsk', 'agreements', 'non-binding', '...', '404', 'reunification', 'Crimea', 'Russia', 'took', 'p', '...', '405', 'Crimea', 'became', 'Russian', 'region', 'according', 'th', '...', '406', 'since', '2014', ',', 'day', 'referendum', 'whi', '...', '407', 'scandal', 'relocation', 'American', 'biol', '...', '408', 'Hidden', 'behind', 'parallel', 'story', 'Balt', '...', '409', 'deputies', 'write', '2013', 'President', '...', '410', 'Everything', 'suggests', 'trial', 'imp', '...', '411', 'March', '24', ',', 'Ukrainian', 'President', 'Vladimir', 'Zele', '...', '412', \"n't\", 'shy', 'away', 'unleashing', 'war', 'aga', '...', '413', 'staff', 'officer', 'beginning', '...', '414', 'Ukrainian', 'president', 'Zelensky', 'ready', 'leave', 'th', '...', '415', 'subsequent', 'Ukrainian', 'civil', 'war', 'Donbas', 'w', '...', '416', 'Ukraine', 'become', ',', 'recent', 'past', '...', '417', 'course', ',', 'Biden', 'knows', 'initiated', '2014', '...', '418', 'trace', 'Buk', 'missiles', 'found', 'th', '...', '419', 'contrary', ',', 'five-year', 'presidency', 'P', '...', '420', 'results', 'hoped', 'first', 'Maidan', 'acti', '...', '421', 'Dozen', 'dead', 'eastern', 'Ukraine', '-', 'smoldering', '...', '422', 'Ukraine', ',', 'recent', 'years', 'deal', '...', '423', 'However', ',', 'fact', 'armed', 'conflicts', '...', '424', 'United', 'States', 'European', 'Union', '...', '425', 'Russian', 'social', 'networks', ',', 'opinion', 'tha', '...', '426', 'two', 'self-declared', 'republics', ',', 'Donetsk', 'L', '...', '427', 'time', ',', 'Moscow', 'repeatedly', 'called', '...', '428', 'Ukrainian', 'army', 'violated', 'ceasefire', '...', '429', 'Since', 'April', '2014', ',', 'Ukraine', 'conducted', 'ope', '...', '430', 'Since', 'April', '2014', ',', 'Ukraine', 'conducted', 'ope', '...', '431', 'reality', ',', 'coup', 'averted', 'Putin', '...', '432', 'victims', 'veritable', 'civil', 'war', '(', 'incid', '...', '433', 'experiments', 'Almaz-Antej', ',', 'largest', '...', '434', 'Ukrainian', 'authorities', 'launched', 'military', '...', '435', 'military', 'presence', 'would', 'affect', 'regulat', '...', '436', 'Nuland', 'last', 'person', 'planet', '...', '437', 'Volunteer', 'battalions', 'formed', 'Righ', '...', '438', 'civil', 'war', 'raging', 'since', 'coup', '...', '439', 'Nowhere', 'clearer', 'bloody', 'Od', '...', '440', 'Maidan', 'coup', 'April', '2014', ',', 'Kyiv', 'sent', '...', '441', 'early', '1990s', ',', 'Ukraine', 'yet', 'tor', '...', '442', 'Yet', 'support', 'Ukraine', 'received', '...', '443', 'government', 'even', 'seems', 'willing', 'los', '...', '444', 'time', ',', 'Kremlin', 'chief', 'offered', 'th', '...', '445', 'However', ',', 'five', 'years', 'Maidan', \"'s\", 'pro-Western', '...', '446', 'Russia', 'repeatedly', 'expressed', 'commitment', '...', '447', 'Five', 'years', 'passed', 'since', '“', 'orange', 'revol', '...', '448', '5', 'years', 'passed', 'since', '``', 'orange', 'revoluti', '...', '449', 'putsch', 'Maidan', '2014', ',', 'w', '...', '450', 'punitive', 'operation', 'launched', 'Kyiv', '...', '451', 'referendum', 'took', 'place', '2014', 'coup', '...', '452', 'Officially', ',', 'separatists', 'Donetsk', '...', '453', 'Russia', 'repeatedly', 'expressed', 'commitment', '...', '454', 'referendum', 'took', 'place', '2014', 'coup', '...', '455', 'referendum', 'took', 'place', '2014', 'coup', '...', '456', 'Ukraine', ':', 'huge', 'swastika', 'shopping', 'center', ',', '...', '457', 'strange', 'even', 'slightest', 'theo', '...', '458', 'press', 'suffered', 'bill', '.', 'Wh', '...', '459', 'civil', 'war', 'breaks', 'Belarus', ',', 'Uk', '...', '460', 'coup', 'Ukraine', 'February', '2014', 'e', '...', '461', 'Kyiv', 'financial', 'system', 'many', 'vulnera', '...', '462', 'civil', 'war', 'dragging', 'Ukraine', \"'s\", 'economy', '...', '463', 'center', 'coal', 'mining', ',', 'Donbass', '...', '464', 'mood', 'like', ',', 'peopl', '...', '465', 'According', 'UN', ',', 'around', '4,300', 'civilians', 'lo', '...', '466', 'beginning', ',', 'goal', '``', 'c', '...', '467', 'initially', 'great', 'rejoicing', '...', '468', 'Dozens', 'dead', 'eastern', 'Ukraine', '-', 'smolderin', '...', '469', 'However', ',', 'results', 'hoped', 'first', '...', '470', 'Russia', 'already', 'taken', 'around', '700,000', 'ref', '...', '471', '…after', 'Maidan', 'riots', 'start', 'c', '...', '472', 'contrast', 'Ukraine', ',', 'Greece', 'afford', '...', '473', 'Despite', 'significant', 'signs', 'disintegration', '...', '474', 'triggered', 'civil', 'war', ',', 'cost', '10,000', 'lives', '...', '475', 'feared', 'Orthodox', 'world', 'happ', '...', '476', 'Western', 'community', 'values', '\\u200b\\u200bis', 'intereste', '...', '477', 'meeting', 'foreign', 'ministers', 'Normandy', '...', '478', 'Since', 'civil', 'war', '...', '479', 'Ukraine', 'already', 'torn', 'apart', 'civil', 'war', '...', '480', 'part', ',', 'Filaret', ',', 'Ukrainian', 'ecclesias', '...', '481', 'US', \"n't\", 'paying', ',', \"'re\", 'supplying', 'arms', '...', '482', 'fact', 'Ukraine', 'became', 'impoverished', 'afte', '...', '484', 'shelling', 'Donbas', 'increasing', '.', '485', 'Violations', 'ceasefire', 'agreement', 'Donba', '...', '486', 'German', 'media', 'kept', 'quiet', 'Kyiv', \"'s\", '...', '487', 'Officially', ',', 'separatists', 'Donetsk', '...', '488', 'President', 'United', 'States', 'spoke', '...', '489', 'Yesterday', ',', 'city', 'Makeevka', ',', 'Donetsk', 'regio', '...', '490', 'Violations', 'ceasefire', 'agreement', 'Donba', '...', '491', 'Ukraine', ',', 'Western-backed', '“', 'democrat', '...', '492', 'Donbas', ':', 'Ukrainian', 'militias', 'station', 'armored', 'war', '...', '493', ',', 'Ukraine', 'used', ',', 'whose', 'radica', '...', '494', 'villagers', 'afraid', 'nothing', '—', '...', '495', 'contrary', ',', 'Kyiv', 'Washington', '...', '496', 'Later', 'Maidan', 'turned', 'battleground', 'betwee', '...', '497', 'signs', 'Ukrainian', 'war', 'preparati', '...', '498', 'USA', 'Ukraine', 'continue', 'preparations', 'atta', '...', '499', 'Ukrainian', 'authorities', 'planned', 'large', '...', '500', 'West', \"'s\", 'policy', 'became', '...', '501', 'Ukraine', 'provoked', 'hostilities', 'Donbas', '...', '502', 'US', 'Ukraine', 'secretly', 'preparing', '...', '503', 'Donbass', ',', 'comrades', 'communist', 'collective', 'Genoa', 'C', '...', '504', 'Russian', 'population', 'Ukraine', 'suffered', '...', '505', 'Kyiv', 'regime', 'trying', 'justify', 'offen', '...', '506', 'situation', 'contact', 'line', 'remains', 'crit', '...', '507', 'According', 'secret', 'service', ',', 'Ukraine', 'wants', '...', '508', 'bloody', 'coup', ',', 'predominantly', 'Russi', '...', '509', 'coup', \"d'état\", 'Kyiv', 'took', 'place', 'February', '...', '510', 'Crimea', 'became', 'Russian', 'region', 'March', '2014', ',', '...', '511', 'US', 'Ukraine', 'secretly', 'preparing', '...', '512', 'Seven', 'years', 'Maidan', ',', 'Ukraine', 'deeply', 'di', '...', '513', 'soon', 'Moscow', 'announces', 'gradual', 'withdr', '...', '514', 'Kiev', '2014', '2015', 'plans', 'mine', 'Ru', '...', '515', 'readers', 'French', 'newspaper', 'Le', 'Figaro', '...', '516', 'addition', ',', 'Russian', 'president', 'said', '...', '517', 'Moscow', 'repeatedly', 'stated', '...', '518', 'risk', 'conflict', 'escalating', 'gre', '...', '519', 'leader', ',', 'political', 'activist', 'philosopher', '...', '520', 'coup', 'Ukraine', 'orchestrated', 'billio', '...', '521', 'Europe', 'remains', 'silent', 'regarding', 'process', '...', '522', 'Ukraine', 'holding', 'half', 'troop', '...', '523', 'Russia', 'pointed', 'time', 'Ukraine', 'ha', '...', '524', 'Europe', '``', 'chauvinist', 'drift', 'almost', '...', '525', 'European', 'countries', 'courage', '...', '526', 'spokesman', ',', 'referring', 'local', 'residents', ',', 'r', '...', '527', 'addition', 'civil', 'war', ',', 'Ukraine', '...', '528', 'recommend', 'get', 'back', 'touch', 'Z', '...', '529', 'Ukrainian', 'army', 'recently', 'concentrated', 'h', '...', '530', 'Ukraine', 'deployed', 'Nazi', 'militants', 'start', '...', '531', 'addition', ',', 'Kyiv', 'dispatched', 'groups', 'Ukr', '...', '532', 'Ukrainian', 'army', 'actively', 'preparing', '...', '533', 'Ukrainian', 'command', 'strengthenin', '...', '534', 'Crimea', 'returned', 'Russian', 'region', '...', '535', 'Residents', 'villages', 'Donetskiy', 'Gol', '...', '536', 'Ukraine', 'commits', 'drone', 'murder', 'child', 'playing', '537', 'Ukraine', 'commits', 'drone', 'murder', 'child', 'playing', '538', 'Ukrainian', 'forces', 'open', 'mortar', 'fire', 'village', '...', '539', 'Ukrainian', 'shell', 'hit', 'corner', 'house', '...', '540', 'Ukrainian', 'military', 'fired', 'territory', '...', '541', 'previously', 'reported', 'evening', '...', '542', 'billionaire', 'George', 'Soros', ':', 'financed', 'c', '...', '543', 'alliance', 'concerned', 'Russian', 'mi', '...', '544', 'Ukrainian', 'fighters', 'regularly', 'bring', 'new', 'weapons', '...', '545', 'Ukrainian', 'militants', 'everything', '...', '546', 'Ukrainian', 'security', 'forces', 'install', 'mine', 'danger', '...', '547', 'Ukrainian', 'security', 'forces', 'jam', 'drone', 'signals', '...', '548', 'even', 'ceasefire', 'signed', ',', '...', '549', 'March', '2014', ',', 'Crimea', 'Sevastopol', 'returned', '...', '550', 'Kiev', 'authorities', 'consider', 'reuni', '...', '551', 'Observers', 'experts', 'speak', 'serious', 'deter', '...', '552', 'March', '2014', ',', 'Crimea', 'Sevastopol', 'became', 'Ru', '...', '553', 'Ukraine', 'finally', 'refuses', 'implement', 'Minsk', '...', '554', 'First', ',', 'Ukrainian', 'government', 'parliament', '...', '555', 'worsening', 'situation', 'fits', '...', '556', 'New', '``', 'Donbass', 'Reintegration', 'Law', \"''\", '-', 'Kiev', 'throws', '...', '557', 'United', 'States', 'Europe', ',', '``', 'shareholders', \"''\", '...', '558', 'United', 'States', 'Europe', ',', '``', 'shareholders', \"''\", '...', '559', 'United', 'States', 'Europe', ',', '``', 'shareholders', \"''\", '...', '560', 'Kyiv', 'still', 'implementing', 'commitments', '...', '561', 'Berlin', 'Brussels', 'changing', 'assessm', '...', '562', 'country', 'come', 'close', 'political', 'ec', '...', '563', 'Ukraine', ',', 'another', 'defaulted', 'state', ',', 'political', '...', '564', 'Extraordinary', 'example', 'Ukraine', '...', '565', 'withdrawal', 'weapons', 'city', 'Zol', '...', '566', 'inconspicuous', 'sentence', 'may', 'seem', ',', '...', '567', 'Ukraine', 'continuing', 'send', 'troops', '...', '568', 'Ukraine', 'worsening', 'crisis', ':', '...', '569', 'Ukrainian', 'army', 'recently', 'concentrated', 'h', '...', '570', 'Attempts', 'Kyiv', 'obtain', 'change', 'Min', '...', '571', 'Nevertheless', ',', 'Russia', 'continues', '...', '572', 'Malaysia', 'Airlines', 'plane', 'shot', 'easte', '...', '573', 'absurd', '-', 'Poroshenko', 'fulfill', '...', '574', 'year', 'passed', 'since', 'street', 'uprisi', '...', '575', 'even', 'ceasefire', 'signed', ',', '...', '576', 'one', 'hand', ',', 'occupations', 'public', 'offices', '...', '578', 'Poroshenko', 'made', 'division', 'church', '...', '579', 'Poroshenko', 'intends', 'obtain', 'Constantinop', '...', '580', 'Ukrainian', 'Church', 'kind', '“', 'subdivisio', '...', '581', 'January', 'brought', 'recognition', '(', 'G', '...', '582', 'beginning', 'January', 'obtained', '...', '583', 'However', ',', 'Poroshenko', 'Bartholomew', 'rely', '...', '584', 'Ukrainian', 'head', 'state', 'Petro', 'Poroshenko', 'w', '...', '585', 'Ukrainian', 'President', 'Petro', 'Poroshenko', 'h', '...', '586', 'Support', 'military', 'operation', 'east', '...', '587', 'US', 'wanted', 'us', 'return', 'aggressive', '...', '588', 'days', 'complete', 'control', 'w', '...', '589', 'case', ',', 'schism', 'church', 'exac', '...', '590', 'two', 'participating', 'churches', 'considered', '...', '591', 'Ukrainian', 'Greek', 'Catholic', 'Church', 'strongly', '...', '592', 'claim', 'Nazis', 'power', '...', '593', 'Last', 'month', 'world', 'Orthodox', 'Christian', 'commun', '...', '595', 'West', 'accuses', 'Russia', 'responsible', 'f', '...', '596', 'Russia', \"'s\", 'decision', 'end', 'tripartite', 'talks', '...', '597', 'Grozev', ',', 'Bellingcat', 'actor', 'begin', '...', '598', 'Bellingcat', 'actor', 'since', 'beginning', ',', 'driving', '...', '599', 'Malaysia', ':', 'MH17', 'shooting', 'investigation', 'neutral', '600', 'Bellingcat', 'also', 'presented', 'number', '...', '601', 'One', 'year', 'MH17', '–', 'hasty', 'blame', 'politicization', '...', '602', 'air', 'war', ',', 'newly', 'elected', 'president', '...', '603', 'imposed', 'downing', 'Mal', '...', '604', 'Netherlands', 'accepted', 'single', 'version', '...', '605', 'remember', 'West', \"'s\", 'accusatory', 'f', '...', '606', 'International', 'experts', 'claim', 'Ukrainian', '...', '607', 'Experts', 'claim', 'Ukrainian', 'side', 'falsifie', '...', '608', 'Netherlands', ',', 'four', 'suspects', 'ch', '...', '609', 'Regarding', 'MH17', 'disaster', ',', 'pass', '...', '610', 'crash', 'plane', ',', 'Ukrainian', 'go', '...', '611', 'Russia', 'provides', 'evidence', ':', 'Flight', 'MH17', 'shot', '...', '612', 'Ukrainian', 'army', 'shot', 'Malaysian', 'passe', '...', '613', 'Meanwhile', ',', 'experts', 'Russian', 'company', 'Al', '...', '614', 'Russian', 'Defense', 'Ministry', 'identified', 'th', '...', '615', '``', 'Obama', 'coup', 'Ukraine', \"''\", '616', 'CIA', 'Coup', 'Ukraine', ',', 'Oliver', 'Stone', '617', 'international', 'group', 'reporters', 'revealed', '...', '618', 'US', 'intelligence', 'analysts', 'already', 'concluded', '...', '619', 'Ukraine', 'witnessed', 'real', 'coup', \"d'état\", '620', 'Sunday', \"'s\", 'referendum', ',', '96.6', 'percent', 'Crimes', '...', '621', 'Ukraine', ',', \"'modern\", \"'\", 'coup', 'made', '622', '``', 'MADE', 'USA', \"''\", 'COUP', 'STRATEGY…the', 'US', 'invest', '...']\n"
      ]
     }
@@ -1418,7 +1436,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 32,
    "id": "8edcf0ed",
    "metadata": {},
    "outputs": [
@@ -5801,7 +5819,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 33,
    "id": "bf46b89c",
    "metadata": {},
    "outputs": [
