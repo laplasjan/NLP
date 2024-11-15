@@ -6,6 +6,9 @@ In the notebook, I combined all preprocessing steps into a single function and b
 
 # Steps to be taken in the future:
 -> considering new dataset
+\
 -> considering use of embedings and transfer learning model
+\
 -> Creating app in FAST API, which will be intuitive and enable to fast check if the text have misinfo.
+\
 -> Creating an extension for Google Chrome and Firefox wchich automatically blocks misinfo
