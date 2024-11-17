@@ -49,7 +49,7 @@ Hyperparameters: Regularization parameter C=1.0 ensures a balance between margin
 # Performance Evaluation
 - Accuracy: The accuracy improves to 36%, reflecting better handling of imbalance compared to the earlier version.
 - Class Distribution: Displays class counts for insights into data imbalance and the effectiveness of preprocessing steps.
-- 
+
 # Key Features of the Updated Implementation
 Robust Data Cleaning: Handles missing values and removes rare classes efficiently.
 Imbalance Correction: Applies SMOTE to deal with underrepresented classes.
